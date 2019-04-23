@@ -1,12 +1,14 @@
 ﻿BEGIN
   SET NOCOUNT ON;
   DECLARE @query nvarchar(max) =  
-  N'SELECT top(100) RemoteID from InteractionSummary'  
+  N'SELECT top(100) RemoteID from [dbo].[InteractionSummary] '  
   EXECUTE sp_execute_external_script @language = N'R',  
                                      @script = N'  
 
-   #Plot histogram  
+  require(gsubfn) 
    a<- InputDataSet
+
+   print(class(a))
    
     
    OutputDataSet <- data.frame(a);  
