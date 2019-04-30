@@ -30,7 +30,7 @@ abc<- cbind.data.frame(alldate,result)
 
 ndvalue<- subset.data.frame(abc, abc$WrapupCode == "NS")
 ndvalue$WrapupCode <- 1
-
+ndvalue <- ndvalue %>% filter(str_detect(ndvalue$WorkgroupID, "Pinergy"))
 
 finalda<- sqldf("select  USERID,Date,cut_Date,WorkgroupID, sum(wrapupcode) from ndvalue group by date,USERID;")
 
