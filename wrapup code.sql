@@ -17,6 +17,7 @@ EXECUTE sp_execute_external_script
 @language = N'R'
 ,@script = N'  
 library(lubridate)
+library(dplyr)
 library(sqldf)
 data =InputDataSet
 date <- data[,7]
