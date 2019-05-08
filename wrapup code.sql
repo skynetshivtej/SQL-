@@ -61,3 +61,9 @@ OutputDataSet = finalda
 @input_data_1 = @query
 WITH RESULT SETS ((userid varchar(60),daily float,weekly date, workgroup varchar(60),totalcount int))
 end
+
+
+USE Core 
+Go 
+
+Select icuserid, WrapupCode,cast(convert(varchar, WrapupStartDateTimeUTC, 101) AS Date ) AS WrDate, WorkgroupID  from [Core ].[dbo].[wrapup] where WorkgroupID like 'Piner%' AND WrapupCode like 'NS';
