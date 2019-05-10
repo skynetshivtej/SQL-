@@ -1,5 +1,5 @@
-create view callhistv
-As
+create or alter view callhistv
+as
 SELECT [campaignname] 
 
       ,[phonenumber] 
@@ -34,4 +34,4 @@ SELECT [campaignname]
 
 INNER JOIN   
 
-[Important].[dbo].[outcome] ot on ch. Wrapupcode = ot. LocalizedWrapUpCode ;
+[Important].[dbo].[outcome] ot on ch. Wrapupcode = ot. LocalizedWrapUpCode where campaignname like 'my%'   ;
