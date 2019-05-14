@@ -1,0 +1,11 @@
+EXECUTE msdb.dbo.sysmail_add_account_sp  
+    @account_name = 'Shivtej',  
+    @description = 'Mail account for administrative e-mail.',  
+    @email_address = 'email@email.com',  
+    @display_name = 'SQL Agent Mail',  
+    @mailserver_name = '11.11.11.11' ;
+    
+    
+EXECUTE msdb.dbo.sysmail_add_profile_sp  
+       @profile_name = 'Shivtej',  
+       @description = 'Profile used for administrative mail.' ;    
