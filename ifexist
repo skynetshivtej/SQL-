@@ -1,0 +1,12 @@
+create PROCEDURE insertifnotexist1
+    (@id bigint, 
+    @name nvarchar(100))
+    AS
+    IF EXISTS (SELECT * From personal Where id = @id)
+	begin 
+    UPDATE personal  SET id = @id, name = @name
+            WHERE id = @id  
+			end
+			ELSE
+    INSERT INTO personal(id,name) 
+            VALUES (@id, @name)
