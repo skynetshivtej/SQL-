@@ -1,0 +1,33 @@
+
+Create or Alter trigger changedata
+on Driver_Data 
+after update
+as 
+begin 
+insert into Driver_update(id,[Phone Number]
+      ,[email]
+      ,[Lastname ]
+      ,[Firstname ]
+      ,[office]
+      ,[public id]
+      ,[dob]
+      ,[address]
+      ,[Status ]
+      ,[Photo])
+SELECT a.[id]
+      ,a.[Phone Number]
+      ,a.[email]
+      ,a.[Lastname ]
+      ,a.[Firstname ]
+      ,a.[office]
+      ,a.[public id]
+      ,a.[dob]
+      ,a.[address]
+      ,a.[Status ]
+      ,a.[Photo]
+  FROM [SalesSense].[dbo].[Driver_Data] a
+inner join inserted i on i.id=a.id
+
+end
+
+
